@@ -395,6 +395,7 @@
       dataType: 'json',
       success: function(result) {
         console.log(result);
+        console.log($('#app-template').html());
         console.log(Handlebars.compile($('#app-template').html()));
         var htmls = Handlebars.compile($('#app-template').html())(result);
         console.log(htmls);
