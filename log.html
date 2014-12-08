@@ -466,8 +466,8 @@ $(function () {
     $('.btn-danger').click(function() {
       var userid = $(this).data("id");
       $.ajax({
-        type; 'POST',
-        url: '/demo/deluser'，
+        type: 'POST',
+        url: '/demo/deluser',
         data: {app_id: userid},
         success: function(data) {
           console.log(data);
