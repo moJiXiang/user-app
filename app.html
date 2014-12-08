@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Title and other stuffs -->
+  <title>Mac风格响应式后台管理模版演示 - 源码之家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="">
+  <!-- Stylesheets -->
+  <link href="style/bootstrap.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="style/font-awesome.css"> 
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="style/jquery-ui.css"> 
+  <!-- Calendar -->
+  <link rel="stylesheet" href="style/fullcalendar.css">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="style/prettyPhoto.css">  
+  <!-- Star rating -->
+  <link rel="stylesheet" href="style/rateit.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="style/bootstrap-datetimepicker.min.css">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="style/jquery.cleditor.css"> 
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="style/bootstrap-switch.css">
+  <!-- Main stylesheet -->
+  <link href="style/style.css" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="style/widgets.css" rel="stylesheet">   
+  <!-- main stylesheet -->
+  <link href="style/main.css" rel="stylesheet">   
+
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shim.js"></script>
+  <![endif]-->
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon/favicon.png">
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+  
+    <div class="conjtainer">
+      <!-- Menu button for smallar screens -->
+      <div class="navbar-header">
+		  <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+			<span>菜单</span>
+		  </button>
+		  <!-- Site name for smallar screens -->
+		  <a href="index.html" class="navbar-brand hidden-lg">首页</a>
+		</div>
+      
+      
+
+      <!-- Navigation starts -->
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">         
+
+
+        <!-- Search form -->
+        <form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+        <!-- Links -->
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown pull-right">            
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="icon-user"></i> 管理员 <b class="caret"></b>              
+            </a>
+            
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="icon-user"></i> 资料</a></li>
+              <li><a href="#"><i class="icon-cogs"></i> 设置</a></li>
+              <li><a href="login.html"><i class="icon-off"></i> 退出</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+
+
+<!-- Header starts -->
+  <header>
+    <div class="container">
+      <div class="row">
+
+        <!-- Logo section -->
+        <div class="col-md-4">
+          <!-- Logo. -->
+          <div class="logo">
+            <h1><a href="#">Mac<span class="bold"></span></a></h1>
+            <p class="meta">后台管理系统</p>
+          </div>
+          <!-- Logo ends -->
+        </div>
+
+        <!-- Data section -->
+
+        <div class="pull-right">
+          <div class="header-data">
+            <!-- Members data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with blue background -->
+                <i class="icon-user bblue"></i> 
+              </div>
+              <div class="mcol-right">
+                <!-- Number of visitors -->
+                <p><a href="#">3000</a> <em>用户</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <!-- revenue data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with green background -->
+                <i class="icon-apple bgreen"></i> 
+              </div>
+              <div class="mcol-right">
+                <!-- Number of visitors -->
+                <p><a href="#">5000</a><em>应用</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>                        
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+<!-- Header ends -->
+
+<!-- Main content starts -->
+
+<div class="content">
+
+  	<!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-dropdown"><a href="#">导航</a></div>
+
+        <!--- Sidebar navigation -->
+        <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+        <ul id="nav">
+          <!-- Main menu with font awesome icon -->
+          <li><a href="index.html"><i class="icon-user"></i>用户</a></li>
+          <li><a href="app.html" class="open"><i class="icon-apple"></i>应用</a></li> 
+          <li><a href="log.html"><i class="icon-book"></i>日志</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar ends -->
+
+  	  	<!-- Main bar -->
+  	<div class="mainbar">
+      
+	    <!-- Page heading -->
+	    <div class="page-head">
+	      <h2 class="pull-left"><i class="icon-apple"></i> 应用</h2>
+        <div class="clearfix"></div>
+
+	    </div>
+	    <!-- Page heading ends -->
+      
+      <!-- user tables -->
+
+      <div class="matter">
+        <div class="container">
+
+          <!-- Table -->
+
+                <div class="widget">
+
+                  <div class="widget-head">
+                    <div class="pull-left">应用列表</div>
+                    <div class="widget-icons pull-right">
+                      <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                      <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                    </div>  
+                    <div class="clearfix"></div>
+                  </div>
+
+                    <div class="widget-content">
+
+                      <table class="table table-striped table-bordered table-hover" id="app-table">
+                        <thead>
+                          <tr>
+                            <th>应用名称</th>
+                            <th>版本</th>
+                            <th>版本号</th>
+                            <th>标签</th>
+                            <th>子标签</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!-- apps body -->
+                        </tbody>
+                      </table>
+
+                      <div class="widget-foot">
+                          <!-- Button to trigger modal -->
+                          <a href="#myModal" class="btn btn-info adduserbtn" data-toggle="modal">增加应用</a>
+                           
+                          <!-- Modal -->
+                          <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title">新应用</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="form profile">
+                                      <!-- Edit profile form (not working)-->
+                                      <form class="form-horizontal" id="app-form">
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="name">Name</label>
+                                            <div class="col-lg-6">
+                                              <input type="text" class="form-control" name="name">
+                                            </div>
+                                          </div>   
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="package">Package</label>
+                                            <div class="col-lg-6">
+                                              <input type="text" class="form-control" name="package">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="description">Description</label>
+                                            <div class="col-lg-6">
+                                              <input type="text" class="form-control" name="description">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="version_name">Version Name</label>
+                                            <div class="col-lg-6">
+                                              <input type="text" class="form-control" name="version_name">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="version_code">Version Code</label>
+                                            <div class="col-lg-6">
+                                              <input type="text" class="form-control" name="version_code">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="category">Category</label>
+                                            <div class="col-lg-6">
+                                              <select class="form-control" name="category">
+                                                <option value=""> --- 选择类型 --- </option>
+                                                <option value="1">应用</option>
+                                                <option value="2">游戏</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="sub_category">Sub Category</label>
+                                            <div class="col-lg-6">
+                                              <input type="text" class="form-control" name="sub_category">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="url">Url</label>
+                                            <div class="col-lg-6">
+                                              <input type="text" class="form-control" name="url">
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                                    <button type="button" class="btn btn-primary" id="newapp">保存</button>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                       
+                          <ul class="pagination pull-right">
+                            <li><a href="#">Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                          </ul>
+                       
+                        <div class="clearfix"></div> 
+
+                      </div>
+
+                    </div>
+
+                </div>
+        </div>
+      </div>
+
+      <!-- user tables ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->
+   <div class="clearfix"></div>
+
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+            <!-- Copyright info -->
+            <p class="copy">Copyright &copy; 2012 | <a href="#">Your Site</a> </p>
+      </div>
+    </div>
+  </div>
+</footer> 	
+
+<!-- Footer ends -->
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span> 
+
+<!-- JS -->
+<script src="js/jquery.js"></script> <!-- jQuery -->
+<script src="js/bootstrap.js"></script> <!-- Bootstrap -->
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
+<script src="js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+<script src="js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+<script src="js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+
+<!-- jQuery Flot -->
+<!-- <script src="js/excanvas.min.js"></script>
+<script src="js/jquery.flot.js"></script>
+<script src="js/jquery.flot.resize.js"></script>
+<script src="js/jquery.flot.pie.js"></script>
+<script src="js/jquery.flot.stack.js"></script> -->
+
+<!-- jQuery Notification - Noty -->
+<script src="js/jquery.noty.js"></script> <!-- jQuery Notify -->
+<script src="js/themes/default.js"></script> <!-- jQuery Notify -->
+<script src="js/layouts/bottom.js"></script> <!-- jQuery Notify -->
+<script src="js/layouts/topRight.js"></script> <!-- jQuery Notify -->
+<script src="js/layouts/top.js"></script> <!-- jQuery Notify -->
+<!-- jQuery Notification ends -->
+
+<script src="js/sparklines.js"></script> <!-- Sparklines -->
+<script src="js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+<script src="js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+<script src="js/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
+<script src="js/filter.js"></script> <!-- Filter for support page -->
+<script src="js/custom.js"></script> <!-- Custom codes -->
+<script src="js/charts.js"></script> <!-- Charts & Graphs -->
+
+<!-- data with handlebar -->
+<script src="js/handlebars-v2.0.0.js"></script>
+<script id="app-template" type="text/x-handlebars-template">
+{{#each apps}}
+  <tr>
+    <td>{{this.name}}</td>
+    <td>{{this.version_name}}</td>
+    <td>{{this.version_code}}</td>
+    <td><span class="label label-success">{{this.category}}</span></td>
+    <td>{{this.sub_category}}</td>
+    <td>
+
+        <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
+        <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
+        <button class="btn btn-xs btn-danger" data-id="{{this.id}}"><i class="icon-remove"></i> </button>
+    
+    </td>
+  </tr>
+{{/each}}
+</script>
+
+
+<script type="text/javascript">
+  $(function() {
+    $.ajax({
+      url: '/demo/apps',
+      dataType: 'json',
+      success: function(result) {
+        var apps = result.data;
+        $('#app-table').children('tbody').append(Handlebars.compile($('#app-template').html())(apps));
+      }
+    })
+    // 增加新的app
+    $('#newapp').click(function() {
+      var appdata = $('#app-form').serializeArray();
+      $.ajax({
+        type: 'POST',
+        url: '/demo/addapp',
+        data: {app: appdata}
+      }).done(function(msg) {
+        console.log(msg);
+      })
+    })
+
+    // 删除app
+    $('.btn-danger').click(function() {
+      var appid = $(this).data("id");
+      $.ajax({
+        type; 'POST',
+        url: '/demo/delapp'，
+        data: {app_id: appid},
+        success: function(data) {
+          console.log(data);
+        }
+      })
+    })
+  });
+</script>
+</body>
+</html>
