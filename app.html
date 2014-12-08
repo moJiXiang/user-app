@@ -394,11 +394,7 @@
       url: '/demo/apps',
       dataType: 'json',
       success: function(result) {
-        console.log(result);
-        console.log($('#app-template').html());
-        console.log(Handlebars.compile($('#app-template').html()));
         var htmls = Handlebars.compile($('#app-template').html())(result);
-        console.log(htmls);
         $('#app-table').children('tbody').append(htmls);
       }
     })
@@ -426,7 +422,7 @@
       $.ajax({
         type: 'POST',
         url: '/demo/addapp',
-        data: {app: appdata}
+        data: appdata
       }).done(function(msg) {
         console.log(msg);
       })
