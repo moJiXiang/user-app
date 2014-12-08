@@ -397,7 +397,9 @@
         console.log(result);
         console.log(typeof(result));
         var apps = result.data;
-        $('#app-table').children('tbody').append(Handlebars.compile($('#app-template').html())(apps));
+        var htmls = Handlebars.compile($('#app-template').html())(apps);
+        console.log(htmls);
+        $('#app-table').children('tbody').append(htmls);
       }
     })
     // 增加新的app
