@@ -261,8 +261,8 @@
                                             <div class="col-lg-6">
                                               <select class="form-control" name="category">
                                                 <option value=""> --- 选择类型 --- </option>
-                                                <option value="1">应用</option>
-                                                <option value="2">游戏</option>
+                                                <option value="应用">应用</option>
+                                                <option value="游戏">游戏</option>
                                               </select>
                                             </div>
                                           </div>
@@ -378,7 +378,7 @@
     <td>{{this.sub_category}}</td>
     <td>
 
-        <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
+        <button class="btn btn-xs btn-success"><i class="icon-eye"></i> </button>
         <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
         <button class="btn btn-xs btn-danger" data-id="{{this.id}}"><i class="icon-remove"></i> </button>
     
@@ -402,9 +402,27 @@
         $('#app-table').children('tbody').append(htmls);
       }
     })
+    $.fn.serializeJson = function() {
+      var serializeObj = {};
+      var array = this.serializeArray();
+      var str = this.serialize();
+      $(array).each(function() {
+        if (serializeObj[this.name]) {
+          if ($.isArray(serializeObj[this.name])) {
+            serializeObj[this.name].push(this.value);
+          } else {
+            serializeObj[this.name] = [serializeObj[this.name], this.value];
+          }
+        } else {
+          serializeObj[this.name] = this.value;
+        }
+      });
+      return serializeObj;
+    };
     // 增加新的app
     $('#newapp').click(function() {
-      var appdata = $('#app-form').serializeArray();
+      var appdata = $('#app-form').serializeJson();
+      console.log(appdata);
       $.ajax({
         type: 'POST',
         url: '/demo/addapp',
