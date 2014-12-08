@@ -414,13 +414,15 @@
     })
 
     // 删除app
-    $('.btn-danger').click(function() {
+    $('.btn-danger').addEventListener('onclick', function() {
       var appid = $(this).data("id");
       console.log(appid);
       $.ajax({
         type: 'POST',
         url: '/demo/delapp',
-        data: {app_id: appid},
+        data: {
+          app_id: appid
+        },
         success: function(data) {
           console.log(data);
         }
