@@ -414,8 +414,8 @@
     $('.btn-danger').click(function() {
       var appid = $(this).data("id");
       $.ajax({
-        type; 'POST',
-        url: '/demo/delapp'，
+        type: 'POST',
+        url: '/demo/delapp',
         data: {app_id: appid},
         success: function(data) {
           console.log(data);
