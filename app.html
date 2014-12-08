@@ -369,7 +369,7 @@
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
 <script id="app-template" type="text/x-handlebars-template">
-{{#each apps}}
+{{#each result.data}}
   <tr>
     <td>{{this.name}}</td>
     <td>{{this.version_name}}</td>
@@ -396,8 +396,7 @@
       success: function(result) {
         console.log(result);
         console.log(typeof(result));
-        var apps = result.data;
-        var htmls = Handlebars.compile($('#app-template').html())(apps);
+        var htmls = Handlebars.compile($('#app-template').html())(result);
         console.log(htmls);
         $('#app-table').children('tbody').append(htmls);
       }
