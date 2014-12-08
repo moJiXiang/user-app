@@ -414,7 +414,7 @@
     })
 
     // 删除app
-    $('.btn-danger').addEventListener('onclick', function() {
+    $('#app-table').delegate("button.btn-danger", 'click', function() {
       var appid = $(this).data("id");
       console.log(appid);
       $.ajax({
