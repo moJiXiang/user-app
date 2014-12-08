@@ -200,10 +200,9 @@
                       <table id="user-table" class="table table-striped table-bordered table-hover">
                         <thead>
                           <tr>
-                            <th>#</th>
                             <th>用户名</th>
-                            <th>日期</th>
-                            <th>状态</th>
+                            <!-- <th>日期</th> -->
+                            <!-- <th>状态</th> -->
                             <th>操作</th>
                           </tr>
                         </thead>
@@ -464,16 +463,15 @@ $(function () {
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
 <script id="user-template" type="text/x-handlebars-template">
-{{#each users}}
+{{#each data}}
   <tr>
-    <td>1</td>
-    <td>Ravi Kumar</td>
-    <td>23/12/2012</td>
-    <td><span class="label label-success">Active</span></td>
+    <td>{{this.name}}</td>
+    // <td>{{this.date}}</td>
+    // <td><span class="label label-success">{{this.status}}</span></td>
     <td>
 
         <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
-        <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
+        <button class="btn btn-xs btn-warning"><i class="icon-eye-open"></i> </button>
         <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
     
     </td>
@@ -488,8 +486,7 @@ $(function () {
       url: '/demo/users',
       dataType: 'json',
       success: function(result) {
-        var users = result.data;
-        $('#user-table').children('tbody').append(Handlebars.compile($('#user-template').html())(users));
+        $('#user-table').children('tbody').append(Handlebars.compile($('#user-template').html())(result));
       }
     })
     // 增加新的app
