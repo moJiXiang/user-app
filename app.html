@@ -396,7 +396,7 @@
       success: function(result) {
         console.log(result);
         console.log(typeof(result));
-        var apps = JSON.parse(result.data);
+        var apps = result.data;
         $('#app-table').children('tbody').append(Handlebars.compile($('#app-template').html())(apps));
       }
     })
