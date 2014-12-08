@@ -416,6 +416,7 @@
     // 删除app
     $('.btn-danger').click(function() {
       var appid = $(this).data("id");
+      console.log(appid);
       $.ajax({
         type: 'POST',
         url: '/demo/delapp',
