@@ -394,8 +394,9 @@
       url: '/demo/apps',
       dataType: 'json',
       success: function(result) {
+        console.log(result);
+        console.log(typeof(result));
         var apps = JSON.parse(result.data);
-        console.log(apps);
         $('#app-table').children('tbody').append(Handlebars.compile($('#app-template').html())(apps));
       }
     })
