@@ -369,7 +369,7 @@
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
 <script id="app-template" type="text/x-handlebars-template">
-{{#each result.data}}
+{{#each data}}
   <tr>
     <td>{{this.name}}</td>
     <td>{{this.version_name}}</td>
@@ -378,7 +378,6 @@
     <td>{{this.sub_category}}</td>
     <td>
 
-        <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
         <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
         <button class="btn btn-xs btn-danger" data-id="{{this.id}}"><i class="icon-remove"></i> </button>
     
