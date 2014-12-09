@@ -282,7 +282,7 @@
                                       </div>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" id="closebtn">关闭</button>
                                     <button type="button" class="btn btn-primary" id="newapp">保存</button>
                                   </div>
                                 </div>
@@ -413,9 +413,9 @@
       }).done(function(msg) {
         console.log(msg);
           if(msg.success) {
-            $('#myModal').attr({'aria-hidden': 'false'});
-            var htmls = Handlebars.compile($('#app-template').html())(msg);
-            $('#app-table').children('tbody').append(htmls);
+            $('#closebtn').click();
+            var html = Handlebars.compile($('#app-template').html())(msg);
+            $('#app-table').children('tbody').append(html);
           }
       })
     })
