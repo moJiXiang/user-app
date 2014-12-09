@@ -402,7 +402,8 @@
    
     // 增加新的app
     $('#newapp').click(function() {
-      var appdata = JSON.parse(JSON.stringify($('#app-form').serializeJson()));
+      var appdata = $('#app-form').serialize();
+      // var appdata = $('#app-form').serializeJson();
       console.log(appdata);
       $.ajax({
         type: 'POST',
