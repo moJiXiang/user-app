@@ -408,6 +408,7 @@
       $.ajax({
         type: 'POST',
         url: '/demo/addapp',
+        dataType: 'json',
         data: appdata
       }).done(function(msg) {
         console.log(msg);
