@@ -245,7 +245,7 @@
                                       </div>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" id="closebtn">关闭</button>
                                     <button type="button" class="btn btn-primary" id="newuser">保存</button>
                                   </div>
                                 </div>
@@ -331,7 +331,7 @@
 
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
-<script id="user-template" type="text/x-handlebars-template">
+<script id="user-list-template" type="text/x-handlebars-template">
 {{#each data}}
   <tr>
     <td>{{this.name}}</td>
@@ -339,11 +339,25 @@
 
         <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
         <button class="btn btn-xs btn-warning"><i class="icon-eye-open"></i> </button>
-        <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+        <button class="btn btn-xs btn-danger" data-name="{{this.name}}"><i class="icon-remove"></i> </button>
     
     </td>
   </tr>
 {{/each}}
+</script>
+<script id="user-template" type="text/x-handlebars-template">
+{{#data}}
+  <tr>
+    <td>{{name}}</td>
+    <td>
+
+        <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
+        <button class="btn btn-xs btn-warning"><i class="icon-eye-open"></i> </button>
+        <button class="btn btn-xs btn-danger" data-name={{name}}><i class="icon-remove"></i> </button>
+    
+    </td>
+  </tr>
+{{/data}}
 </script>
 
 
@@ -353,33 +367,44 @@
       url: '/demo/users',
       dataType: 'json',
       success: function(result) {
-        $('#user-table').children('tbody').append(Handlebars.compile($('#user-template').html())(result));
+        $('#user-table').children('tbody').append(Handlebars.compile($('#user-list-template').html())(result));
       }
     })
     // 增加新的app
     $('#newuser').click(function() {
-      var userdata = $('#user-form').serializeArray();
+      var data = JSON.stringify($('#app-form').serializeJson());
       $.ajax({
         type: 'POST',
         url: '/demo/adduser',
-        data: {app: userdata}
+        dataType: 'json',
+        contentType: "application/json",
+        data: data
       }).done(function(msg) {
         console.log(msg);
+        if(msg.success) {
+          $('#closebtn').click();
+          var html = Handlebars.compile($('#user-template').html())(msg);
+          $('#user-table').children('tbody').append(html);
+        }
       })
     })
 
     // 删除user
     $('#user-table').delegate("button.btn-danger", 'click', function() {
-      var userid = $(this).data("id");
-      console.log(userid);
+      var _this = $(this);
+      var name = _this.data("name");
+      var datastr = JSON.stringify({name: name})
+
       $.ajax({
         type: 'POST',
         url: '/demo/deluser',
-        data: {
-          app_id: userid
-        },
+        dataType: 'json',
+        contentType: "application/json",
+        data: datastr,
         success: function(data) {
-          console.log(data);
+          if(data.success) {
+            _this.parent().parent().remove();
+          }
         }
       })
     })

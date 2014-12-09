@@ -292,7 +292,7 @@
 
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
-<script id="log-template" type="text/x-handlebars-template">
+<script id="log-list-template" type="text/x-handlebars-template">
 {{#each data}}
   <tr>
     <td>{{this.device}}</td>
@@ -303,13 +303,12 @@
 
         <button class="btn btn-xs btn-success"><i class="icon-ok"></i> </button>
         <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
-        <button class="btn btn-xs btn-danger"><i class="icon-remove"></i> </button>
+        <button class="btn btn-xs btn-danger" data-id={{this.id}}><i class="icon-remove"></i> </button>
     
     </td>
   </tr>
 {{/each}}
 </script>
-
 
 <script type="text/javascript">
   $(function() {
@@ -317,33 +316,26 @@
       url: '/demo/logs',
       dataType: 'json',
       success: function(result) {
-        $('#log-table').children('tbody').append(Handlebars.compile($('#log-template').html())(result));
+        $('#log-table').children('tbody').append(Handlebars.compile($('#log-list-template').html())(result));
       }
-    })
-    // 增加新的app
-    $('#newuser').click(function() {
-      var userdata = $('#user-form').serializeArray();
-      $.ajax({
-        type: 'POST',
-        url: '/demo/addlog',
-        data: {app: userdata}
-      }).done(function(msg) {
-        console.log(msg);
-      })
     })
 
     // 删除app
     $('#log-table').delegate("button.btn-danger", 'click', function() {
-      var logid = $(this).data("id");
-      console.log(logid);
+      var _this = $(this);
+      var logid = _this.data("id");
+      var datastr = JSON.stringify({logid: logid})
+
       $.ajax({
         type: 'POST',
         url: '/demo/dellog',
-        data: {
-          app_id: logid
-        },
+        dataType: 'json',
+        contentType: "application/json",
+        data: datastr,
         success: function(data) {
-          console.log(data);
+          if(data.success) {
+            _this.parent().parent().remove();
+          }
         }
       })
     })
