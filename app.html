@@ -369,7 +369,7 @@
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
 <script src="js/plugin/plugin.js"></script>
-<script id="app-template" type="text/x-handlebars-template">
+<script id="app-list-template" type="text/x-handlebars-template">
 {{#each data}}
   <tr>
     <td>{{this.name}}</td>
@@ -388,6 +388,22 @@
 {{/each}}
 </script>
 
+<script id="app-template" type="text/x-handlebars-template">
+  <tr>
+    <td>{{name}}</td>
+    <td>{{version_name}}</td>
+    <td>{{version_code}}</td>
+    <td><span class="label label-success">{{category}}</span></td>
+    <td>{{sub_category}}</td>
+    <td>
+
+        <button class="btn btn-xs btn-success"><i class="icon-eye-open"></i> </button>
+        <button class="btn btn-xs btn-warning"><i class="icon-pencil"></i> </button>
+        <button class="btn btn-xs btn-danger" data-id="{{id}}"><i class="icon-remove"></i> </button>
+    
+    </td>
+  </tr>
+</script>
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -395,7 +411,7 @@
       url: '/demo/apps',
       dataType: 'json',
       success: function(result) {
-        var htmls = Handlebars.compile($('#app-template').html())(result);
+        var htmls = Handlebars.compile($('#app-list-template').html())(result);
         $('#app-table').children('tbody').append(htmls);
       }
     })
@@ -414,7 +430,6 @@
           if(msg.success) {
             $('#closebtn').click();
             var html = Handlebars.compile($('#app-template').html())(msg);
-            console.log(html);
             $('#app-table').children('tbody').append(html);
           }
       })
