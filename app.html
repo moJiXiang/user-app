@@ -412,12 +412,18 @@
         data: appdata
       }).done(function(msg) {
         console.log(msg);
+          if(msg.success) {
+            $('#myModal').attr({'aria-hidden': 'false'});
+            var htmls = Handlebars.compile($('#app-template').html())(msg);
+            $('#app-table').children('tbody').append(htmls);
+          }
       })
     })
 
     // 删除app
     $('#app-table').delegate("button.btn-danger", 'click', function() {
-      var appid = $(this).data("id");
+      var _this = $(this);
+      var appid = _this.data("id");
       var datastr = JSON.stringify({app_id: appid})
       $.ajax({
         type: 'POST',
@@ -428,8 +434,7 @@
         success: function(data) {
           console.log(data);
           if(data.success) {
-            console.log($(this));
-            $(this).parent().parent().remove();
+            _this.parent().parent().remove();
           }
         }
       })
