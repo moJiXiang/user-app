@@ -403,7 +403,6 @@
     // 增加新的app
     $('#newapp').click(function() {
       var appdata = JSON.stringify($('#app-form').serializeJson());
-      console.log(appdata);
       $.ajax({
         type: 'POST',
         url: '/demo/addapp',
@@ -411,10 +410,11 @@
         contentType: "application/json",
         data: appdata
       }).done(function(msg) {
-        console.log(msg);
+        console.log(msg.data);
           if(msg.success) {
             $('#closebtn').click();
             var html = Handlebars.compile($('#app-template').html())(msg);
+            console.log(html);
             $('#app-table').children('tbody').append(html);
           }
       })
