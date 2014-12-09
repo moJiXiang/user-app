@@ -424,6 +424,7 @@
       $.ajax({
         type: 'POST',
         url: '/demo/delapp',
+        dataType: 'json',
         data: datastr,
         success: function(data) {
           console.log(data);
