@@ -403,12 +403,14 @@
     // 增加新的app
     $('#newapp').click(function() {
       // var appdata = $('#app-form').serialize();
-      var appdata = JSON.stringify($('#app-form').serializeJson());
+      var appdata = $('#app-form').serializeJson();
+      // var appdata = JSON.stringify($('#app-form').serializeJson());
       console.log(appdata);
       $.ajax({
         type: 'POST',
         url: '/demo/addapp',
         dataType: 'json',
+        contentType: "application/json",
         data: appdata
       }).done(function(msg) {
         console.log(msg);
