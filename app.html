@@ -418,13 +418,12 @@
     // 删除app
     $('#app-table').delegate("button.btn-danger", 'click', function() {
       var appid = $(this).data("id");
+      var datastr = JSON.stringify({app_id: appid})
       console.log(appid);
       $.ajax({
         type: 'POST',
         url: '/demo/delapp',
-        data: {
-          app_id: appid
-        },
+        data: datastr,
         success: function(data) {
           console.log(data);
         }
