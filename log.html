@@ -325,7 +325,7 @@
       var userdata = $('#user-form').serializeArray();
       $.ajax({
         type: 'POST',
-        url: '/demo/adduser',
+        url: '/demo/addlog',
         data: {app: userdata}
       }).done(function(msg) {
         console.log(msg);
@@ -333,12 +333,15 @@
     })
 
     // 删除app
-    $('.btn-danger').click(function() {
-      var userid = $(this).data("id");
+    $('#log-table').delegate("button.btn-danger", 'click', function() {
+      var logid = $(this).data("id");
+      console.log(logid);
       $.ajax({
         type: 'POST',
-        url: '/demo/deluser',
-        data: {app_id: userid},
+        url: '/demo/dellog',
+        data: {
+          app_id: logid
+        },
         success: function(data) {
           console.log(data);
         }
