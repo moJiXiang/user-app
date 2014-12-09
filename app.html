@@ -402,8 +402,6 @@
    
     // 增加新的app
     $('#newapp').click(function() {
-      // var appdata = $('#app-form').serialize();
-      // var appdata = $('#app-form').serializeJson();
       var appdata = JSON.stringify($('#app-form').serializeJson());
       console.log(appdata);
       $.ajax({
@@ -421,8 +419,6 @@
     $('#app-table').delegate("button.btn-danger", 'click', function() {
       var appid = $(this).data("id");
       var datastr = JSON.stringify({app_id: appid})
-      console.log(datastr);
-      console.log(appid);
       $.ajax({
         type: 'POST',
         url: '/demo/delapp',
@@ -431,6 +427,10 @@
         data: datastr,
         success: function(data) {
           console.log(data);
+          if(data.success) {
+            console.log($(this));
+            $(this).parent().parent().remove();
+          }
         }
       })
     })
