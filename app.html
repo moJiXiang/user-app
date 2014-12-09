@@ -309,9 +309,9 @@
         </div>
       </div>
       
-      <form action="/user-app/upload" enctype="multipart/form-data">
-        <input type="file">
-        <input type="submit" value="submit">
+      <form action="/user-app/upload" enctype="multipart/form-data" id = "fileupload">
+        <input type="file" id="file">
+        <input type="submit" value="submit" id="submitfile">
       </form>
       <!-- user tables ends -->
 
@@ -347,6 +347,7 @@
 <script src="js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
 <script src="js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
 <script src="js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+<script src="js/jquery.form.js"></script> <!-- jquery form -->
 
 <!-- jQuery Flot -->
 <!-- <script src="js/excanvas.min.js"></script>
@@ -458,6 +459,16 @@
           if(data.success) {
             _this.parent().parent().remove();
           }
+        }
+      })
+    })
+
+    // 上传文件
+    $("#submitfile").click(function() {
+      $('#fileupload').ajaxSubmit({
+        dataType: 'json', 
+        success: function(data) {
+          console.log(data);
         }
       })
     })
