@@ -389,6 +389,7 @@
 </script>
 
 <script id="app-template" type="text/x-handlebars-template">
+  {{#data}}
   <tr>
     <td>{{name}}</td>
     <td>{{version_name}}</td>
@@ -403,6 +404,7 @@
     
     </td>
   </tr>
+  {{/data}}
 </script>
 
 <script type="text/javascript">
