@@ -418,7 +418,7 @@
     // 删除app
     $('#app-table').delegate("button.btn-danger", 'click', function() {
       var appid = $(this).data("id");
-      var datastr = JSON.stringify({app_id: appid})
+      var datastr = {app_id: appid};
       console.log(datastr);
       console.log(appid);
       $.ajax({
