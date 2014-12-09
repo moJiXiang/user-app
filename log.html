@@ -324,7 +324,7 @@
     $('#log-table').delegate("button.btn-danger", 'click', function() {
       var _this = $(this);
       var logid = _this.data("id");
-      var datastr = JSON.stringify({logid: logid})
+      var datastr = JSON.stringify({log_id: logid})
 
       $.ajax({
         type: 'POST',
