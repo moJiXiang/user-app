@@ -272,13 +272,16 @@
                                               <input type="text" class="form-control" name="sub_category">
                                             </div>
                                           </div>
+                                          
+                                        </form>
+                                        <form action="/demo/upload" enctype="multipart/form-data" method="post" id = "fileupload">
                                           <div class="form-group">
                                             <label class="control-label col-lg-3" for="url">Url</label>
                                             <div class="col-lg-6">
-                                              <input type="file" class="form-control" name="url">
+                                              <input type="file" id="file" name="file">
+                                              <!-- <input type="file" class="form-control" name="url"> -->
                                             </div>
                                           </div>
-                                          
                                         </form>
                                       </div>
                                   </div>
@@ -464,7 +467,7 @@
     })
 
     // 上传文件
-    $("#submitfile").click(function() {
+    $("#file").change(function() {
       console.log('*********');
       $('#fileupload').ajaxSubmit({
         dataType: 'json', 
