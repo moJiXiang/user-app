@@ -276,7 +276,7 @@
                                         </form>
                                         <form action="/demo/upload" enctype="multipart/form-data" method="post" id = "fileupload">
                                           <div class="form-group">
-                                            <label class="control-label col-lg-3" for="url">Url</label>
+                                            <label class="control-label col-lg-3" for="file">上传文件</label>
                                             <div class="col-lg-6">
                                               <input type="file" id="file" name="file">
                                               <!-- <input type="file" class="form-control" name="url"> -->
@@ -418,6 +418,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    var URL;
     $.ajax({
       url: '/demo/apps',
       dataType: 'json',
@@ -429,7 +430,9 @@
    
     // 增加新的app
     $('#newapp').click(function() {
-      var data = JSON.stringify($('#app-form').serializeJson());
+      var obj = $('#app-form').serializeJson();
+      obj.url = URL;
+      var data = JSON.stringify(obj);
       $.ajax({
         type: 'POST',
         url: '/demo/addapp',
@@ -472,7 +475,9 @@
       $('#fileupload').ajaxSubmit({
         dataType: 'json', 
         success: function(data) {
-          console.log(data);
+          if(data.success) {
+            URL = data.url;
+          }
         }
       })
     })
