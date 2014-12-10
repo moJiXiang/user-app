@@ -432,7 +432,9 @@
     $('#newapp').click(function() {
       var obj = $('#app-form').serializeJson();
       obj.url = URL;
+      console.log(URL);
       var data = JSON.stringify(obj);
+      console.log(data);
       $.ajax({
         type: 'POST',
         url: '/demo/addapp',
