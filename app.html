@@ -477,7 +477,9 @@
       $('#fileupload').ajaxSubmit({
         dataType: 'json', 
         success: function(data) {
+          console.log(data);
           if(data.success) {
+
             URL = data.url;
             console.log(URL);
           }
