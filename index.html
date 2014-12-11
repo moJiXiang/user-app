@@ -369,7 +369,8 @@
     })
     // 增加新的app
     $('#newuser').click(function() {
-      var data = JSON.stringify($('#app-form').serializeJson());
+      var data = JSON.stringify($('#user-form').serializeJson());
+      console.log(data);
       $.ajax({
         type: 'POST',
         url: '/demo/adduser',
