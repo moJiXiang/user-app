@@ -104,6 +104,7 @@
         datatype: 'json',
         data: data
       }).done(function(msg) {
+        console.log(msg);
         if(msg.success) {
           window.location = 'http://104.237.131.233/user-app/index.html';
         } else {
