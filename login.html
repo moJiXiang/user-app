@@ -40,7 +40,7 @@
               <div class="widget-content">
                 <div class="padd">
                   <!-- Login form -->
-                  <form class="form-horizontal" id="login-form">
+                  <form class="form-horizontal" id="login-form" method="post" url="/demo/login">
                     <!-- Email -->
                     <div class="form-group">
                       <label class="control-label col-lg-3" for="name">用户名</label>
@@ -102,7 +102,6 @@
         type: 'POST',
         url: '/demo/login',
         datatype: 'json',
-        contentType: "application/json",
         data: data
       }).done(function(msg) {
         if(msg.success) {
