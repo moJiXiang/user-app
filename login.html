@@ -106,7 +106,7 @@
         data: data
       }).done(function(msg) {
         msg = JSON.parse(msg);
-        if(msg.successs == true) {
+        if(msg.success == true) {
           $.cookie('user-app-user', msg.data.name,  { expires: 7 });
           window.location.href = 'http://104.237.131.233/user-app/index.html';
         } else {
