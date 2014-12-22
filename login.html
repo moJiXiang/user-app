@@ -89,23 +89,30 @@
 
 <!-- JS -->
 <script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/plugin/plugin.js"></script>
 
 </body>
 <script type="text/javascript">
   $(document).ready(function() {
+
+    if($.cookie('user-app-user') != undefined) {
+        window.location.href = 'http://104.237.131.233/user-app/index.html';
+    }
     $('#loginbtn').click(function() {
       var data = JSON.stringify($('#login-form').serializeJson());
       console.log(data);
       $.ajax({
         type: 'POST',
-        url: '/demo/login',
+        url: '/demo/signin',
         datatype: 'json',
         data: data
       }).done(function(msg) {
         console.log(msg);
         if(msg.successs) {
+          $.cookie('user-app-user', msg.user.name);
+          $.cookie('user-app-password', msg.user.password)
           window.location.href = 'http://104.237.131.233/user-app/index.html';
         } else {
           $('#warning').html('用户名密码错误');
