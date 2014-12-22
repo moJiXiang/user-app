@@ -40,7 +40,7 @@
               <div class="widget-content">
                 <div class="padd">
                   <!-- Login form -->
-                  <form class="form-horizontal" id="login-form" method="post" url="/demo/login">
+                  <form class="form-horizontal" id="login-form" method="post">
                     <!-- Email -->
                     <div class="form-group">
                       <label class="control-label col-lg-3" for="name">用户名</label>
@@ -105,11 +105,11 @@
         data: data
       }).done(function(msg) {
         console.log(msg);
-        if(msg.success) {
-          window.location = 'http://104.237.131.233/user-app/index.html';
-        } else {
-          $('#warning').html('用户名密码错误');
-        }
+        // if(msg.success) {
+        //   window.location = 'http://104.237.131.233/user-app/index.html';
+        // } else {
+        //   $('#warning').html('用户名密码错误');
+        // }
       })
     })
   })
