@@ -382,6 +382,7 @@
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
 <script src="js/plugin/plugin.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script id="app-list-template" type="text/x-handlebars-template">
 {{#each data}}
   <tr>
@@ -424,6 +425,10 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    
+    if($.cookie('user-app-user') != undefined) {
+        window.location.href = 'http://104.237.131.233/demo/signin';
+    }
     var URL;
     $.ajax({
       url: '/demo/apps',

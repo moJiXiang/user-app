@@ -331,6 +331,7 @@
 
 <!-- data with handlebar -->
 <script src="js/handlebars-v2.0.0.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/plugin/plugin.js"></script>
 <script id="user-list-template" type="text/x-handlebars-template">
 {{#each data}}
@@ -360,6 +361,10 @@
 
 <script type="text/javascript">
   $(function() {
+    
+    if($.cookie('user-app-user') != undefined) {
+        window.location.href = 'http://104.237.131.233/demo/signin';
+    }
     $.ajax({
       url: '/demo/users',
       dataType: 'json',
