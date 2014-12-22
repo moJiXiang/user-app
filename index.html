@@ -376,7 +376,7 @@
       })
     })
     $('#loginout').click(function() {
-      $.cookie('user-app-user',{ path: '/', expires: -1 });
+      $.cookie('user-app-user', null, { path: '/', expires: -1 });
       window.location.href = 'http://104.237.131.233/demo/signin';
     })
   });
