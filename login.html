@@ -107,9 +107,9 @@
         data: data
       }).done(function(msg) {
         console.log(msg);
+        window.alert(msg);
         if(msg.successs == true) {
           $.cookie('user-app-user', msg.data.name);
-          $.cookie('user-app-password', msg.data.password)
           window.location.href = 'http://104.237.131.233/user-app/index.html';
         } else {
           $('#warning').html('用户名密码错误');
