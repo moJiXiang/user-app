@@ -76,9 +76,7 @@
             
             <!-- Dropdown menu -->
             <ul class="dropdown-menu">
-              <li><a href="#"><i class="icon-user"></i> 资料</a></li>
-              <li><a href="#"><i class="icon-cogs"></i> 设置</a></li>
-              <li><a href="login.html"><i class="icon-off"></i> 退出</a></li>
+              <li><button class="btn btn-default" id="loginout"><i class="icon-off"></i> 退出</button></li>
             </ul>
           </li>
           
@@ -104,39 +102,7 @@
           <!-- Logo ends -->
         </div>
 
-        <!-- Data section -->
-
-        <div class="pull-right">
-          <div class="header-data">
-            <!-- Members data -->
-            <div class="hdata">
-              <div class="mcol-left">
-                <!-- Icon with blue background -->
-                <i class="icon-user bblue"></i> 
-              </div>
-              <div class="mcol-right">
-                <!-- Number of visitors -->
-                <p><a href="#">3000</a> <em>用户</em></p>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-
-            <!-- revenue data -->
-            <div class="hdata">
-              <div class="mcol-left">
-                <!-- Icon with green background -->
-                <i class="icon-apple bgreen"></i> 
-              </div>
-              <div class="mcol-right">
-                <!-- Number of visitors -->
-                <p><a href="#">5000</a><em>应用</em></p>
-              </div>
-              <div class="clearfix"></div>
-            </div>                        
-
-          </div>
-        </div>
-
+       
       </div>
     </div>
   </header>
@@ -247,7 +213,7 @@
     <div class="row">
       <div class="col-md-12">
             <!-- Copyright info -->
-            <p class="copy">Copyright &copy; 2012 | <a href="#">Your Site</a> </p>
+            <p class="copy">Copyright &copy; 手机助手 2014 </p>
       </div>
     </div>
   </div>
@@ -312,7 +278,7 @@
 
 <script type="text/javascript">
   $(function() {
-    
+
     if($.cookie('user-app-user') == undefined) {
         window.location.href = 'http://104.237.131.233/demo/signin';
     } 
@@ -342,6 +308,9 @@
           }
         }
       })
+    })
+    $('#loginout').click(function() {
+      $.cookie('user-app-user',{ expires: -1 });
     })
   });
 </script>
