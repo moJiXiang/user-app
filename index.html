@@ -361,7 +361,7 @@
 
 <script type="text/javascript">
   $(function() {
-    window.alert($.cookie);
+    window.alert($.cookie('user-app-user'));
     if($.cookie('user-app-user') == undefined) {
         window.location.href = 'http://104.237.131.233/demo/signin';
     } 
