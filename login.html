@@ -105,12 +105,12 @@
       console.log(data);
       $.ajax({
         type: 'POST',
-        url: '/demo/signin',
+        url: '/demo/login',
         datatype: 'json',
         data: data
       }).done(function(msg) {
         console.log(msg);
-        if(msg.successs) {
+        if(msg.successs == true) {
           $.cookie('user-app-user', msg.user.name);
           $.cookie('user-app-password', msg.user.password)
           window.location.href = 'http://104.237.131.233/user-app/index.html';
