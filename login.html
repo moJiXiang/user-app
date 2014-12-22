@@ -96,8 +96,10 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
-    if($.cookie('user-app-user') != undefined) {
+    if($.cookie('user-app-user') == undefined) {
         window.location.href = 'http://104.237.131.233/demo/signin';
+    } else {
+        window.location.href = 'http://104.237.131.233/user-app/app.html';
     }
     $('#loginbtn').click(function() {
       var data = JSON.stringify($('#login-form').serializeJson());
