@@ -95,7 +95,7 @@
 </body>
 <script type="text/javascript">
   $(document).ready(function() {
-
+    console.log($.cookie('user-app-user'));
    
     $('#loginbtn').click(function() {
       var data = JSON.stringify($('#login-form').serializeJson());
@@ -106,6 +106,8 @@
         data: data
       }).done(function(msg) {
         msg = JSON.parse(msg);
+        console.log(msg);
+        console.log(msg.success);
         if(msg.success == true) {
           $.cookie('user-app-user', msg.data.name,  { expires: 7 });
           window.location.href = 'http://104.237.131.233/user-app/index.html';
