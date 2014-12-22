@@ -99,17 +99,14 @@
    
     $('#loginbtn').click(function() {
       var data = JSON.stringify($('#login-form').serializeJson());
-      console.log(data);
       $.ajax({
         type: 'POST',
         url: '/demo/login',
         datatype: 'json',
         data: data
       }).done(function(msg) {
-        console.log(msg);
-        window.alert($.cookie);
         if(msg.successs == true) {
-          $.cookie('user-app-user', msg.data.name,  { expires: 7 });
+          $.cookie('user-app-user', JSON.parse(msg).data.name,  { expires: 7 });
           window.location.href = 'http://104.237.131.233/user-app/index.html';
         } else {
           $('#warning').html('用户名密码错误');
