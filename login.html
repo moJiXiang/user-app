@@ -40,7 +40,7 @@
               <div class="widget-content">
                 <div class="padd">
                   <!-- Login form -->
-                  <form class="form-horizontal" id="login-form" method="post" url="/demo/login">
+                  <form class="form-horizontal" id="login-form">
                     <!-- Email -->
                     <div class="form-group">
                       <label class="control-label col-lg-3" for="name">用户名</label>
@@ -66,7 +66,7 @@
 					</div>
 					</div> -->
                         <div class="col-lg-9 col-lg-offset-2">
-            							<button type="submit" class="btn btn-danger" id="loginbtn">登录</button>
+            							<button class="btn btn-danger" id="loginbtn">登录</button>
                           <span id="warning"></span>
             							<!-- <button type="reset" class="btn btn-default">Reset</button> -->
             						</div>
@@ -94,24 +94,24 @@
 
 </body>
 <script type="text/javascript">
-  // $(document).ready(function() {
-  //   $('#loginbtn').click(function() {
-  //     var data = JSON.stringify($('#login-form').serializeJson());
-  //     console.log(data);
-  //     $.ajax({
-  //       type: 'POST',
-  //       url: '/demo/login',
-  //       datatype: 'json',
-  //       data: data
-  //     }).done(function(msg) {
-  //       console.log(msg);
-  //       if(msg.success) {
-  //         window.location = 'http://104.237.131.233/user-app/index.html';
-  //       } else {
-  //         $('#warning').html('用户名密码错误');
-  //       }
-  //     })
-  //   })
-  // })
+  $(document).ready(function() {
+    $('#loginbtn').click(function() {
+      var data = JSON.stringify($('#login-form').serializeJson());
+      console.log(data);
+      $.ajax({
+        type: 'POST',
+        url: '/demo/login',
+        datatype: 'json',
+        data: data
+      }).done(function(msg) {
+        console.log(msg);
+        if(msg.success) {
+          window.location = 'http://104.237.131.233/user-app/index.html';
+        } else {
+          $('#warning').html('用户名密码错误');
+        }
+      })
+    })
+  })
 </script>
 </html>
