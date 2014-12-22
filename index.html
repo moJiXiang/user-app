@@ -364,9 +364,7 @@
     
     if($.cookie('user-app-user') == undefined) {
         window.location.href = 'http://104.237.131.233/demo/signin';
-    } else {
-        window.location.href = 'http://104.237.131.233/user-app/app.html';
-    }
+    } 
     $.ajax({
       url: '/demo/users',
       dataType: 'json',
