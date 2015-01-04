@@ -289,17 +289,13 @@
       dataType: 'json',
       success: function(result) {
         for(var i = 0; i<result.data.length; i++) {
-          var newtime = new Date(result.data[i].create).toUTCString();
-          console.log(newtime);
-          newtime = newtime.substring(0, newtime.indexOf('GMT'));
+          var newtime = new Date(result.data[i].create).getTime() + 8*60*60*1000;
           newtime = new Date(newtime);
-          var year = newtime.getFullYear(),
-              month = newtime.getMonth() + 1,
-              day = newtime.getDay(),
-              hour = newtime.getHours(),
+         
+         var  hour = newtime.getHours(),
               minute = newtime.getMinutes(),
-              seconds = newtime.getMilliseconds()
-          var formatdate = year + '-' + month + '-' + day + ' ' + hour + '-' + minute + '-' + seconds;
+              seconds = newtime.getSeconds();
+          var formatdate = newtime.toLocaleDateString() + hour + ':' + minute + ':' + seconds;
           console.log(formatdate);
           result.data[i].create = formatdate;
         }
