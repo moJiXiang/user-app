@@ -288,9 +288,8 @@
       url: '/demo/logs',
       dataType: 'json',
       success: function(result) {
-        result = JSON.parse(result);
         for(var i = 0; i<result.length; i++) {
-          result[i].create = new Date(result[i].create);
+          result[i].create = new Date(JSON.stringify(result[i].create));
         }
         $('#log-table').children('tbody').append(Handlebars.compile($('#log-list-template').html())(result));
       }
