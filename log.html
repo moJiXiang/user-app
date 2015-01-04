@@ -288,6 +288,8 @@
       url: '/demo/logs',
       dataType: 'json',
       success: function(result) {
+        console.log(typeof(result));
+        result = JSON.parse(result);
         for(var i = 0; i<result.length; i++) {
           var newtime = new Date(result[i].create).toUTCString();
           console.log(newtime);
