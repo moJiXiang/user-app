@@ -289,7 +289,19 @@
       dataType: 'json',
       success: function(result) {
         for(var i = 0; i<result.length; i++) {
-          result[i].create = new Date(JSON.stringify(result[i].create));
+          var newtime = new Date(result[i].create).toUTCString();
+          console.log(newtime);
+          newtime = newtime.substring(0, newtime.indexOf('GMT'));
+          newtime = new Date(newtime);
+          var year = newtime.getFullYear(),
+              month = newtime.getMonth() + 1,
+              day = newtime.getDay(),
+              hour = newtime.getHours(),
+              minute = newtime.getMinutes(),
+              seconds = newtime.getMilliseconds()
+          var formatdate = year + '-' + month + '-' + day + ' ' + hour + '-' + minute + '-' + seconds;
+          console.log(formatdate);
+          result[i].create = formatdate;
         }
         $('#log-table').children('tbody').append(Handlebars.compile($('#log-list-template').html())(result));
       }
