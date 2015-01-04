@@ -288,10 +288,8 @@
       url: '/demo/logs',
       dataType: 'json',
       success: function(result) {
-        console.log(typeof(result));
-        result = JSON.parse(result);
-        for(var i = 0; i<result.length; i++) {
-          var newtime = new Date(result[i].create).toUTCString();
+        for(var i = 0; i<result.data.length; i++) {
+          var newtime = new Date(result.data[i].create).toUTCString();
           console.log(newtime);
           newtime = newtime.substring(0, newtime.indexOf('GMT'));
           newtime = new Date(newtime);
@@ -303,7 +301,7 @@
               seconds = newtime.getMilliseconds()
           var formatdate = year + '-' + month + '-' + day + ' ' + hour + '-' + minute + '-' + seconds;
           console.log(formatdate);
-          result[i].create = formatdate;
+          result.data[i].create = formatdate;
         }
         $('#log-table').children('tbody').append(Handlebars.compile($('#log-list-template').html())(result));
       }
