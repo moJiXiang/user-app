@@ -171,7 +171,6 @@
                             <th>标签</th>
                             <th>子标签</th>
                             <th>激活统计</th>
-                            <th>操作</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -180,8 +179,6 @@
                       </table>
 
                       <div class="widget-foot">
-                          <!-- Button to trigger modal -->
-                          <a href="#myModal" class="btn btn-info adduserbtn" data-toggle="modal">增加应用</a>
                            
                           <!-- Modal -->
                           <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -360,11 +357,6 @@
     <td><span class="label label-success">{{this.category}}</span></td>
     <td>{{this.sub_category}}</td>
     <td>{{this.activated}}</td>
-    <td>
-
-        <button class="btn btn-xs btn-danger" data-id="{{this.id}}"><i class="icon-remove"></i> </button>
-    
-    </td>
   </tr>
 {{/each}}
 </script>
@@ -380,11 +372,6 @@
     <td><span class="label label-success">{{category}}</span></td>
     <td>{{sub_category}}</td>
     <td>{{activated}}</td>
-    <td>
-
-        <button class="btn btn-xs btn-danger" data-id="{{id}}"><i class="icon-remove"></i> </button>
-    
-    </td>
   </tr>
   {{/data}}
 </script>
