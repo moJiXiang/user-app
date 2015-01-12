@@ -121,9 +121,9 @@
         <ul id="nav">
           <!-- Main menu with font awesome icon -->
           <li><a href="index.html"><i class="icon-user"></i>用户</a></li>
-          <li><a href="app.html" class="open"><i class="icon-apple"></i>应用</a></li> 
+          <li><a href="app.html"><i class="icon-apple"></i>应用</a></li> 
           <li><a href="log.html"><i class="icon-book"></i>日志</a></li>
-          <li><a href="apklog.html"><i class="icon-book"></i>应用日志</a></li>
+          <li><a href="apklog.html" class="open"><i class="icon-book"></i>应用日志</a></li>
         </ul>
     </div>
 
@@ -170,7 +170,7 @@
                             <th>版本号</th>
                             <th>标签</th>
                             <th>子标签</th>
-                            <th>url</th>
+                            <th>activated</th>
                             <th>操作</th>
                           </tr>
                         </thead>
@@ -359,7 +359,7 @@
     <td>{{this.version_code}}</td>
     <td><span class="label label-success">{{this.category}}</span></td>
     <td>{{this.sub_category}}</td>
-    <td>{{this.url}}</td>
+    <td>{{this.activated}}</td>
     <td>
 
         <button class="btn btn-xs btn-danger" data-id="{{this.id}}"><i class="icon-remove"></i> </button>
@@ -379,7 +379,7 @@
     <td>{{version_code}}</td>
     <td><span class="label label-success">{{category}}</span></td>
     <td>{{sub_category}}</td>
-    <td>{{url}}</td>
+    <td>{{activated}}</td>
     <td>
 
         <button class="btn btn-xs btn-danger" data-id="{{id}}"><i class="icon-remove"></i> </button>
